@@ -1,0 +1,70 @@
+@use "../utils/functions/"as*;
+@use "../utils/mixins"as*;
+
+.policy {
+  padding: 86px 0;
+
+  &__content {
+    margin-bottom: 48px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+
+  h2 {
+    margin: 0 0 24px;
+    font-size: 32px;
+  }
+
+  p {
+    font-family: var(--font-family-secondary);
+    color: var(--color-gray-400);
+
+    &:not(:last-child) {
+      margin-bottom: 48px;
+    }
+  }
+
+  a {
+    color: var( --color-red-400);
+    text-decoration: underline;
+    font-weight: var(--fw-700);
+  }
+
+  ul {
+    margin: 0 0 24px;
+  }
+
+  li {
+    font-weight: var(--fw-400);
+    color: var(--color-gray-400);
+    font-size: 18px;
+    position: relative;
+    padding-left: 24px;
+
+    &::before {
+      content: '✓';
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-weight: var(--fw-400);
+      color: var(--color-gray-400);
+    }
+
+    span {
+      font-weight: 800;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+  }
+
+  @include media(tablet) {
+    padding: calc(var(--header-height) + 40px) 0 40px;
+  }
+
+}

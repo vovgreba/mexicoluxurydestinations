@@ -1,0 +1,160 @@
+@use '../utils/functions/' as *;
+@use '../utils/mixins/' as *;
+
+.nav {
+  position: relative;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+    .logo {
+      display: block;
+
+      @include media(tablet) {
+        display: none;
+      }
+    }
+
+    .header & {
+
+      @include media(tablet) {
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        flex-direction: column;
+        justify-content: flex-start;
+        overflow-y: auto;
+        padding-top: calc(var(--header-height) * 1.5);
+        width: 100%;
+        height: calc(var(--vh));
+        background-color: var(--color-black);
+        transform: translateX(150%);
+        transition-property: transform;
+        transition-duration: 0.4s;
+      }
+    }
+
+    .nav__btns {
+
+      .btn--user {
+
+        @include media(tablet) {
+
+          &:not(:last-child) {
+            margin-right: 0;
+            margin: 0 auto 10px;
+          }
+        }
+      }
+    }
+  }
+
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 45px;
+
+    .header & {
+
+      @include media(desktop) {
+        margin-right: 10px;
+      }
+
+      @include media(tablet) {
+        z-index: -1;
+        flex-direction: column;
+      }
+    }
+  }
+
+  &__item {
+
+    .header & {
+
+      @include media(tablet) {
+      }
+    }
+  }
+
+  &__link {
+    font-size: 20px;
+    font-weight: var(--fw-700);
+    padding: 2px;
+    white-space: nowrap;
+    text-transform: capitalize;
+    color: var( --color-green-400);
+    background-color: transparent;
+    transition: color 0.4s, border 0.4s;
+    font-variation-settings: unset;
+    line-height: 1.2;
+
+    &:hover,
+    &:focus {
+      color: var(--color-green-300);
+    }
+
+    &.true {
+      color: var(--color-orange-400);
+    }
+  }
+
+  &__btns {
+    display: flex;
+    align-items: center;
+
+    .btn--user {
+      padding: 0;
+      white-space: nowrap;
+      max-width: 70px;
+      background-color: transparent;
+    }
+
+    .request-btn {
+      white-space: nowrap;
+      max-width: 181px;
+    }
+
+    @include media(tablet) {
+      flex-direction: column;
+    }
+
+  }
+
+  @include media(tablet) {
+
+    .nav {
+
+      &__list {
+        margin: 0 auto;
+      }
+
+      &__item {
+        margin-right: 0;
+      }
+    }
+
+    &--footer {
+      flex-direction: column;
+
+      .nav {
+
+        &__list {
+
+          @include media(mobile-m) {
+            flex-direction: column;
+          }
+        }
+
+        &__inner {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    }
+  }
+}

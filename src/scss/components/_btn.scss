@@ -1,0 +1,81 @@
+/* stylelint-disable declaration-no-important */
+@use '../utils/functions/' as *;
+@use '../utils/mixins' as *;
+
+*[class].btn {
+  font-family: var(--font-family-primary);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: var(--radius-btn);
+  padding: 28px 68px 28px 39px;
+  width: 100%;
+  font-weight: var(--fw-700);
+  font-size: 20px;
+  color: var(--color-white);
+  background-color: var(--color-red-400);
+  white-space: nowrap;
+  line-height: 1.2;
+  text-align: center;
+  color: inherit;
+  transition-property: background-color, color, border-color;
+  transition-duration: 0.2s;
+
+  &:hover,
+  &:focus {
+    color: var(--color-gray-400);
+  }
+
+  &--reverse {
+
+    &:hover,
+    &:focus {
+      border: 1px solid  var(--color-red-400);
+      color: var(--color-gray-400) !important;
+      background-color: transparent;
+    }
+  }
+
+  &--user {
+    position: relative;
+
+    &:hover::before,
+    &:focus::before {
+      filter: invert(1);
+    }
+  }
+
+  @include media(mobile-s) {
+    margin: 0 auto;
+    min-width: auto;
+  }
+}
+
+*[class].request-btn {
+  position: relative;
+
+  &:hover::after,
+  &:focus::after {
+    filter: invert(0);
+  }
+}
+
+.arrow {
+  position: relative;
+  transition: all .4s;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 39px;
+    transform: translateY(-50%);
+    background-image: url('../images/icons/arrow.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 19px;
+    height: 19px;
+  }
+}

@@ -1,0 +1,52 @@
+@use '../utils/functions/' as *;
+@use '../utils/mixins/' as *;
+
+h1,
+h2,
+h3 {
+  overflow: visible;
+  width: fit-content;
+  font-weight: var(--fw-800);
+  line-height: 1.2;
+  color: var(--color-white);
+  text-transform: capitalize;
+
+  span {
+    text-transform: lowercase;
+  }
+}
+
+h1 {
+  font-size: clamp(1.75rem, 1rem + 3.75vw, 70px);
+  color: var(--color-white-125);
+
+
+}
+
+h2,
+.title {
+  font-size: 50px;
+  color: var(--color-green-400);
+
+  @include media(mobile-m) {
+    font-size: 32px;
+  }
+}
+
+h3 {
+  color: var(--color-green-400);
+  font-size: 25px;
+  width: 100%;
+}
+
+p {
+  font-family: var(--font-family-secondary);
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: var(--fw-400);
+  letter-spacing: 0;
+}
+
+
+
+

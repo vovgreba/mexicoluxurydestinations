@@ -1,0 +1,151 @@
+@use '../../utils/functions/' as *;
+@use '../../utils/mixins/' as *;
+
+.tours {
+  padding: 86px 0;
+
+  &--baja {
+    padding-bottom: 0;
+  }
+  
+  .title {
+    margin-bottom: 28px;
+  }
+
+  h3 {
+    font-weight: var(--fw-500);
+    margin-bottom: 7px;
+  }
+
+  h4 {
+    font-weight: var(--fw-800);
+    color: var(--color-green-400);
+    font-size: 35px;
+    line-height: 1.2;
+    margin-bottom: 11px;
+  }
+
+  &__wrapper {
+    max-width: 936px;
+    margin: 0 auto;
+
+    &--first {
+      margin-bottom: 70px;
+    }
+
+    &--bottom{
+      margin-bottom: 86px;
+    }
+  }
+
+  .image {
+    border-radius: var(--radius-main);
+
+
+    &--big {
+      margin-bottom: 60px;
+      aspect-ratio: 16 / 10;
+    }
+
+  }
+
+  &__item {
+    font-family: var(--font-family-secondary);
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--color-gray-400);
+    font-weight: var(--fw-400);
+    padding-left: 25px;
+
+    &::before {
+      width: 4px;
+      height: 4px;
+    }
+
+  }
+
+  &__inclusions {
+    display: flex;
+    margin-bottom: 70px;
+    gap: 20px;
+  }
+
+  &__content {
+    border-radius: calc(var(--radius-main) - 10px);
+    background-color: var(--color-white-100);
+    padding: 63px 45px;
+  }
+
+  &__pricing {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-gray-400);
+
+    .btn {
+      max-width: 181px;
+    }
+  }
+
+  @include media(tablet) {
+
+    .image {
+      aspect-ratio: 16 / 6;
+      width: 100%;
+    }
+
+    &__inclusions {
+      flex-direction: column;
+      gap: 20px;
+
+      .image {
+        order: 1;
+      }
+    }
+
+    &__content {
+      order: 0;
+      padding: 40px;
+    }
+  }
+
+  @include media(mobile-l) {
+    padding: 40px 0;
+
+    &__wrapper {
+
+      &--first {
+        margin-bottom: 40px;
+      }
+
+      &--bottom{
+        margin-bottom: 40px;
+      }
+
+      &--not-bottom{
+        margin-bottom: 0;
+      }
+    }
+
+    &__pricing {
+      flex-direction: column;
+      gap: 20px;
+      align-items: flex-start;
+
+      .btn {
+        max-width: 100%;
+      }
+    }
+  }
+
+  @include media(mobile-m) {
+
+    &__content {
+      padding: 40px 20px;
+
+      h3 {
+        text-align: center;
+      }
+    }
+  }
+}

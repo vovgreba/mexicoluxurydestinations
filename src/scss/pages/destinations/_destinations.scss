@@ -1,0 +1,153 @@
+@use '../../utils/functions/' as *;
+@use '../../utils/mixins/' as *;
+
+.destinations {
+  padding: 86px 0;
+  overflow: hidden;
+
+  .container {
+    padding-right: 0;
+  }
+
+  &__wrapper {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    gap: 51px;
+  }
+
+  &__content {
+    color: var(--color-gray-400);
+    max-width: 671px;
+    width: 100%;
+  }
+
+  h3 {
+    font-family: var(--font-family-third);
+    line-height: 1.4;
+    font-size: 36px;
+    margin-bottom: 8px;
+    color: var(--color-orange-400);
+  }
+
+  h2 {
+    margin-bottom: 32px;
+  }
+
+  p {
+    font-family: var(--font-family-secondary);
+  }
+
+  h2 + p {
+    margin-bottom: 36px;
+  }
+
+  .circle {
+    display: inline-block;
+    padding: 29px 91px 29px 53px;
+    background-color: var(--color-white-150);
+    font-size: 20px;
+    font-weight: var(--fw-500);
+    line-height: 1.2;
+    margin-bottom: 12px;
+    border-radius: calc(var(--radius-main) + 19px);
+
+    &::before {
+      background-image: url('../images/icons/sircle.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 19px;
+      height: 19px;
+      background-color: unset;
+      border-radius: unset;
+      left: 28px;
+    }
+  }
+
+  h4 + p {
+    max-width: 504px;
+    width: 100%;
+    padding-left: 60px;
+
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    right: -168px;
+    max-width: 678px;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-main);
+    overflow: hidden;
+  }
+
+  @include media(tablet-wide) {
+    h2 + p {
+      max-width: 450px;
+    }
+
+    h4 + p {
+      max-width: 400px;
+    }
+  }
+
+  @include media(tablet) {
+    padding: 40px 0;
+
+    .container {
+      padding-right: 15px;
+    }
+
+    &__wrapper {
+      gap: 20px;
+    }
+
+    h2 {
+      width: 100%;
+      text-align: center;
+    }
+
+    &__content {
+      max-width: 100%;
+    }
+
+    img {
+      position: static;
+      max-width: 100%;
+      aspect-ratio: 16 / 10;
+    }
+
+    h2 + p {
+      max-width: 100%;
+    }
+
+    h4 + p {
+      max-width: 100%;
+    }
+  }
+
+  @include media(mobile-m) {
+
+    h3 {
+      text-align: center;
+    }
+
+    .circle {
+      display: block;
+    }
+
+    h4 + p {
+      padding-left: 0;
+    }
+
+    p {
+      text-align: center;
+    }
+  }
+}
+

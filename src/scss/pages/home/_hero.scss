@@ -1,0 +1,163 @@
+@use '../../utils/functions/' as *;
+@use '../../utils/mixins/' as *;
+
+.hero {
+  min-height:calc(var(--header-height) + 773px);
+
+  &--policy {
+    min-height:calc(var(--header-height) + 311px);
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height:calc(var(--header-height) + 773px);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: var(--header-height);
+
+    &--policy {
+      min-height:calc(var(--header-height) + 311px);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var( --color-black-600);
+    }
+  }
+
+  h1 {
+    max-width: 508px;
+    margin-bottom: 23px;
+
+    span {
+      white-space: nowrap;
+    }
+
+  }
+
+  &__content {
+    position: relative;
+    z-index: 3;
+
+    &--guide {
+
+      h1 {
+        max-width: 100%;
+      }
+    }
+
+    &--tours, &--destinations {
+
+      h1 {
+        max-width: 771px;
+      }
+    }
+
+  }
+
+  p {
+    font-family: var(--font-family-third);
+    line-height: 1.4;
+    font-size: 36px;
+    margin-bottom: 8px;
+    color: var(--color-white-100);
+  }
+
+  .btn {
+    max-width: 181px;
+    margin: 0;
+
+    &:hover,
+    &:focus {
+      border: 1px solid var(--color-red-400);
+      color: var(--color-white-100);
+      background-color: transparent;
+    }
+  }
+
+
+  @include media(desktop) {
+    min-height: 750px;
+
+    &__inner {
+      min-height: 750px;
+    }
+
+  }
+
+  @include media(tablet) {
+    min-height: 700px;
+
+    &__inner {
+      min-height: 700px;
+      position: relative;
+    }
+
+  }
+
+  @include media(mobile-l) {
+    min-height: 600px;
+
+    &__content {
+      max-width: unset;
+
+      h1 {
+        max-width: unset;
+      }
+
+      p {
+        max-width: unset;
+      }
+
+    }
+
+    &__inner {
+      min-height: 600px;
+    }
+
+  }
+
+  @include media(mobile-m) {
+    min-height: 500px;
+
+    &__content {
+      text-align: center;
+    }
+
+    p {
+      font-size: 24px;
+    }
+
+    &__inner {
+      min-height: 500px;
+    }
+
+    &__content {
+
+      .btn {
+        max-width: none;
+        width: 100%;
+        padding: 20px 68px 20px 39px;
+
+        &::after {
+          right: 20px;
+        }
+      }
+    }
+  }
+}
+
+
+
